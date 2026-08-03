@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alkitab - Edisi Elegan</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="min-h-screen bg-[#FDFBF7]">
+        <!-- Header -->
+        <header class="border-b border-[#E5E0D8] py-6 px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-serif text-[#27272A] text-center tracking-wide">
+                    Alkitab
+                </h1>
+                <p class="text-center text-[#27272A]/60 mt-2 font-sans text-sm">
+                    Edisi Indonesia Terjemahan Baru
+                </p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="sticky top-0 bg-[#FDFBF7]/95 backdrop-blur-sm border-b border-[#E5E0D8] z-10 py-4 px-4">
+            <div class="max-w-6xl mx-auto flex flex-row justify-center items-center gap-3 flex-wrap">
+                <!-- Custom Book Selector -->
+                <div class="custom-dropdown relative w-48 sm:w-64" id="bookDropdown">
+                    <div class="dropdown-trigger w-full px-4 py-3 bg-[#FDFBF7] border border-[#D4CFC5] rounded-lg font-sans text-[#27272A] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#8B1C1C]/30 focus:border-[#8B1C1C] flex items-center justify-between" data-placeholder="Pilih Kitab">
+                        <span class="dropdown-text">Pilih Kitab</span>
+                        <svg class="w-5 h-5 text-[#27272A]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dropdown-menu hidden absolute top-full left-0 right-0 mt-1 bg-[#FDFBF7] border border-[#D4CFC5] rounded-lg shadow-lg z-20">
+                        <div class="p-2 border-b border-[#D4CFC5]">
+                            <input type="text" class="dropdown-search w-full px-3 py-2 bg-[#FDFBF7] border border-[#D4CFC5] rounded font-sans text-[#27272A] placeholder-[#27272A]/40 focus:outline-none focus:ring-2 focus:ring-[#8B1C1C]/30 focus:border-[#8B1C1C]" placeholder="Cari kitab...">
+                        </div>
+                        <div class="dropdown-options max-h-[300px] overflow-y-auto">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Chapter Selector -->
+                <div class="custom-dropdown relative w-24 sm:w-32" id="chapterDropdown">
+                    <div class="dropdown-trigger w-full px-4 py-3 bg-[#FDFBF7] border border-[#D4CFC5] rounded-lg font-sans text-[#27272A] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#8B1C1C]/30 focus:border-[#8B1C1C] flex items-center justify-between disabled:opacity-50 disabled:cursor-not-allowed" disabled data-placeholder="Pasal">
+                        <span class="dropdown-text">Pasal</span>
+                        <svg class="w-5 h-5 text-[#27272A]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dropdown-menu hidden absolute top-full left-0 right-0 mt-1 bg-[#FDFBF7] border border-[#D4CFC5] rounded-lg shadow-lg z-20">
+                        <div class="p-2 border-b border-[#D4CFC5]">
+                            <input type="text" class="dropdown-search w-full px-3 py-2 bg-[#FDFBF7] border border-[#D4CFC5] rounded font-sans text-[#27272A] placeholder-[#27272A]/40 focus:outline-none focus:ring-2 focus:ring-[#8B1C1C]/30 focus:border-[#8B1C1C]" placeholder="Cari pasal...">
+                        </div>
+                        <div class="dropdown-options max-h-[300px] overflow-y-auto">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Verse Selector -->
+                <div class="custom-dropdown relative w-24 sm:w-32" id="verseDropdown">
+                    <div class="dropdown-trigger w-full px-4 py-3 bg-[#FDFBF7] border border-[#D4CFC5] rounded-lg font-sans text-[#27272A] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#8B1C1C]/30 focus:border-[#8B1C1C] flex items-center justify-between disabled:opacity-50 disabled:cursor-not-allowed" disabled data-placeholder="Ayat">
+                        <span class="dropdown-text">Ayat</span>
+                        <svg class="w-5 h-5 text-[#27272A]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dropdown-menu hidden absolute top-full left-0 right-0 mt-1 bg-[#FDFBF7] border border-[#D4CFC5] rounded-lg shadow-lg z-20">
+                        <div class="p-2 border-b border-[#D4CFC5]">
+                            <input type="text" class="dropdown-search w-full px-3 py-2 bg-[#FDFBF7] border border-[#D4CFC5] rounded font-sans text-[#27272A] placeholder-[#27272A]/40 focus:outline-none focus:ring-2 focus:ring-[#8B1C1C]/30 focus:border-[#8B1C1C]" placeholder="Cari ayat...">
+                        </div>
+                        <div class="dropdown-options max-h-[300px] overflow-y-auto">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Font Size Controls -->
+                <button id="decreaseFont" class="font-size-btn px-3 py-2 bg-[#FDFBF7] border border-[#D4CFC5] rounded-lg font-sans text-[#27272A] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#8B1C1C]/30 focus:border-[#8B1C1C] hover:border-[#8B1C1C] transition-all" title="Kecilkan ukuran font (Shortcut: -)">
+                    <span class="text-sm font-semibold">A-</span>
+                </button>
+                <button id="increaseFont" class="font-size-btn px-3 py-2 bg-[#FDFBF7] border border-[#D4CFC5] rounded-lg font-sans text-[#27272A] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#8B1C1C]/30 focus:border-[#8B1C1C] hover:border-[#8B1C1C] transition-all" title="Besarkan ukuran font (Shortcut: =)">
+                    <span class="text-lg font-semibold">A+</span>
+                </button>
+                <button id="fullscreenBtn" class="font-size-btn px-3 py-2 bg-[#FDFBF7] border border-[#D4CFC5] rounded-lg font-sans text-[#27272A] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#8B1C1C]/30 focus:border-[#8B1C1C] hover:border-[#8B1C1C] transition-all" title="Fullscreen / Zen Mode (Shortcut: F)">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 0h-4m4 0l-5 5"></path>
+                    </svg>
+                </button>
+
+                <!-- Search Bar -->
+                <div class="relative min-w-[180px] max-w-[280px]">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Cari kata dalam Alkitab..." 
+                        class="w-full px-4 py-3 pl-12 bg-[#FDFBF7] border border-[#D4CFC5] rounded-lg font-sans text-[#27272A] placeholder-[#27272A]/40 focus:outline-none focus:ring-2 focus:ring-[#8B1C1C]/30 focus:border-[#8B1C1C]"
+                    >
+                    <div class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                        <svg class="w-5 h-5 text-[#27272A]/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="py-8 px-4">
+            <div class="max-w-[90ch] mx-auto" id="readingContainer">
+                <!-- Loading State -->
+                <div id="loadingState" class="text-center py-12 hidden">
+                    <p class="font-serif text-[#27272A]/70 text-lg italic animate-pulse">
+                        Membuka gulungan...
+                    </p>
+                </div>
+
+                <!-- Chapter Title -->
+                <div id="chapterTitle" class="text-center mb-8 hidden">
+                    <h2 class="chapter-title font-serif text-[#27272A] font-semibold"></h2>
+                </div>
+
+                <!-- Verses Container -->
+                <div id="versesContainer" class="space-y-4 hidden">
+                    <!-- Verses will be rendered here -->
+                </div>
+
+                <!-- Search Results Container -->
+                <div id="searchResultsContainer" class="space-y-6 hidden">
+                    <!-- Search results will be rendered here -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="text-center py-16">
+                    <p class="font-serif text-[#27272A]/50 text-lg italic">
+                        Silakan pilih kitab dan pasal, atau gunakan kotak pencarian untuk mulai membaca firman Tuhan.
+                        <br><span class="text-sm text-gray-400">Tips: Gunakan tombol 'F' untuk Fullscreen, '=' untuk perbesar teks, dan '-' untuk perkecil teks.</span>
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="zen-footer border-t border-[#E5E0D8] py-6 px-4 mt-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="font-sans text-gray-500 text-sm">
+                    Sumber API: API Indonesia | Teks Alkitab: Edisi Terjemahan Baru (TB) © Lembaga Alkitab Indonesia (LAI).
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
